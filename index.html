@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>EM Field</title>
+		<style>
+			body { margin: 0; }
+        </style>
+        <!-- <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://cdn.jsdelivr.net/npm/three@<version>/build/three.module.js",
+                    "three/addons/": "https://cdn.jsdelivr.net/npm/three@<version>/examples/jsm/",
+                    "dat.gui": https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.js"
+                }
+            }
+        </script> -->
+        <style>
+			body { margin: 0; }
+            #math-container{
+                /* background-color: #; */
+                -webkit-filter: invert(100%);
+                filter: invert(100%);       
+                position: absolute;
+                left: 0rem;
+                bottom: 0rem;
+                width: 350px;
+                height: 150px;
+                /* box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.5); */
+                display: inline-block;
+            }
+        </style>
+        <link rel="stylesheet" href="./mathquill.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="./mathquill.js"></script>
+
+	</head>
+	<body>
+        <!-- Nothing -->
+        <div id="container">
+            <div id="threejs-container"></div>
+            <div id="math-container">
+                <p><span id="stat-field-x">q_{x}=</span><span id="math-field-x"> \sin\left(0.5t\right) </span></p>
+                <p><span id="stat-field-y">q_{y}=</span><span id="math-field-y"> \sin\left(t\right)</span></p>
+                <p><span id="stat-field-z">q_{z}=</span><span id="math-field-z"> -\cos\left(1.5t\right)\cdot2 </span></p>
+                <p><span id="latex"></span></p>
+            </div>
+        </div>
+		<script type="module" src="/anim.js"></script>
+	</body>
+</html>
