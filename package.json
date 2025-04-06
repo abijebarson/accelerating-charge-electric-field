@@ -1,5 +1,18 @@
 {
+  "name": "accelerating-charge-electric-field",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  },
   "dependencies": {
+    "mathjs": "^14.3.1",
     "three": "^0.174.0",
     "vite": "^6.2.1"
   }

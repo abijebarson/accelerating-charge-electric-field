@@ -1,10 +1,10 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 // import { create, all, parse } from 'mathjs'
-import { parseTex, evaluateTex } from './tex-math-parser.js'; //NOT NPM version - Customized!
+import { parseTex, evaluateTex } from './tex-math-parser'; //NOT NPM version - Customized!
 // import * as dat from 'dat.gui'
 
-const config = { }
+// const config = { }
 // const math = create(all, config)
 
 
@@ -54,8 +54,6 @@ camera.position.set(2, 5, 5); //Cross angle
 const controls = new OrbitControls( camera, renderer.domElement );
 controls.listenToKeyEvents( window ); // optional
 
-//controls.addEventListener( 'change', render ); // call this only in static scenes (i.e., if there is no animation loop)
-
 controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
 controls.dampingFactor = 0.05;
 
@@ -67,25 +65,6 @@ controls.autoRotate = false
 controls.autoRotateSpeed = 0.5
 // controls.maxPolarAngle = 0;
 
-
-for (let i = 0; i < 1000; i++){
-    const sphereGeometry = new THREE.SphereGeometry(0.03, 8, 8)
-    const sphereMaterial = new THREE.MeshPhongMaterial({
-        emissive : Math.random()*0x111111 + 0xeeeeee,
-        emissiveIntensity : 256
-    })
-    const star = new THREE.Mesh(sphereGeometry, sphereMaterial)
-    star.castShadow = true
-    star.receiveShadow = true
-    let starpos = [0, 0, 0]
-    while (starpos[0]**2 + starpos[1]**2+starpos[2]**2 < 10**2){
-        starpos = [[-1, 1][Math.round(Math.random())]*(Math.random()*20), 
-                [-1, 1][Math.round(Math.random())]*(Math.random()*20), 
-                [-1, 1][Math.round(Math.random())]*(Math.random()*20)]
-    }
-    star.position.set(starpos[0], starpos[1], starpos[2])
-    // scene.add(star)
-}
 
 window.addEventListener( 'resize', onWindowResize, false );
 
@@ -334,16 +313,9 @@ function distance(vec1, vec2){
 
 function animate() {
     t += unit_t
-    // if (t > 10){
-    //     t = 0
-    // }
     pos = charge_pos(t)
-    // console.log(fn_x(t))
     
     charge.position.set(pos[0], pos[1], pos[2])
-
-    
-        
 
     for (let i = -ARROW_NUM/2; i < ARROW_NUM/2; i++){
         for (let j = -ARROW_NUM/2; j < ARROW_NUM/2; j++){
@@ -374,7 +346,7 @@ function animate() {
         }
     }
     
-    camera.lookAt(sphere.position.x, sphere.position.y, sphere.position.z)
+    camera.lookAt(0, 0, 0)
 
     controls.update()
 	renderer.render( scene, camera );
